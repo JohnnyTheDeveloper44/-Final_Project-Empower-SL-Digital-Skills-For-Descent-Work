@@ -52,6 +52,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: hsl(var(--background));
@@ -98,7 +103,6 @@ body {
   gap: 0.5rem;
   text-decoration: none;
   transition: transform 0.2s;
-
 }
 
 .logo:hover .logo-icon {
@@ -106,8 +110,8 @@ body {
 }
 
 .logo-icon {
-  height:10 px;
-  width: 15rem;
+  height: 5rem;
+  width: 10rem;
   transition: transform 0.2s;
 }
 

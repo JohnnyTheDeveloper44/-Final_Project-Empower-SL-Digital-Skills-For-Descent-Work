@@ -43,13 +43,34 @@ menuToggle.addEventListener('click', () => {
   closeIcon.classList.toggle('hidden');
 });
 
-// Close mobile menu when clicking a link
-const mobileLinks = document.querySelectorAll('.mobile-link');
-mobileLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    menuIcon.classList.remove('hidden');
-    closeIcon.classList.add('hidden');
+// Smooth scrolling for all navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    
+    if (targetId === '#') return;
+    
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      // Close mobile menu if open
+      mobileMenu.classList.remove('open');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      
+      // Smooth scroll to target
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Update active link
+      document.querySelectorAll('.nav-link, .mobile-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      this.classList.add('active');
+    }
   });
 });
 
