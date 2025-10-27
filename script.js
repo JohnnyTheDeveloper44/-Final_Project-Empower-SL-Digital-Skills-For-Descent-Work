@@ -4,13 +4,15 @@ const sunIcon = document.getElementById('sunIcon');
 const moonIcon = document.getElementById('moonIcon');
 const html = document.documentElement;
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
 if (currentTheme === 'dark') {
   html.classList.add('dark');
   sunIcon.classList.remove('hidden');
   moonIcon.classList.add('hidden');
+  localStorage.setItem('theme', 'dark');
 } else {
+  html.classList.remove('dark');
   sunIcon.classList.add('hidden');
   moonIcon.classList.remove('hidden');
 }
@@ -61,3 +63,49 @@ window.addEventListener('scroll', () => {
     navbar.classList.remove('scrolled');
   }
 });
+
+// Animated Counter for Statistics
+function animateCounter(element, target, suffix = '') {
+  const duration = 2000; // 2 seconds
+  const steps = 50;
+  const increment = target / steps;
+  let current = 0;
+  let step = 0;
+
+  const timer = setInterval(() => {
+    step++;
+    current = Math.min(Math.floor(increment * step), target);
+    
+    if (suffix) {
+      element.textContent = current.toLocaleString() + suffix;
+    } else {
+      element.textContent = current.toLocaleString();
+    }
+
+    if (step >= steps) {
+      clearInterval(timer);
+      element.textContent = target.toLocaleString() + suffix;
+    }
+  }, duration / steps);
+}
+
+// Intersection Observer for Stats Animation
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const statValues = entry.target.querySelectorAll('.stat-value');
+      statValues.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const suffix = stat.getAttribute('data-suffix') || '';
+        animateCounter(stat, target, suffix);
+      });
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+// Observe the stats section
+const statsSection = document.querySelector('.stats');
+if (statsSection) {
+  statsObserver.observe(statsSection);
+}
