@@ -123,8 +123,8 @@ body {
 }
 
 .logo-icon {
-  height: 10 rem;
-  width: 15rem;
+  height: 2.5rem;
+  width: 2.5rem;
   transition: transform 0.2s;
 }
 
@@ -1101,12 +1101,10 @@ body {
 
 /* Footer */
 .footer {
- padding: 4rem 0 2rem;
- background-color: hsl(210 50% 15%); /* deep blue */
-  color: hsl(0 0% 100%);                           /* readable text */
+  background-color: hsl(var(--foreground));
+  color: white;
+  padding: 4rem 0 2rem;
 }
-
- 
 
 .footer-grid {
   display: grid;
@@ -1135,8 +1133,8 @@ body {
 }
 
 .footer-logo-icon {
-  height: 7rem;
-  width: 13rem;
+  height: 2rem;
+  width: 2rem;
 }
 
 .footer-logo-text {
