@@ -349,10 +349,9 @@ function highlightNavigation() {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${sectionId}`) {
           link.classList.add('active');
-        }
-      });
+        }});
     }
   });
+  window.addEventListener('scroll', highlightNavigation);
 }
 
-window.addEventListener('scroll', highlightNavigation);
