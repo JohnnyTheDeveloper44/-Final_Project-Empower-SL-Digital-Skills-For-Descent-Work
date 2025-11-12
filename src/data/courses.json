@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "title": "Digital Marketing Fundamentals",
+    "description": "Master the essentials of digital marketing including SEO, social media, and content strategy",
+    "instructor": "Sarah Johnson",
+    "duration": "8 weeks",
+    "level": "Beginner",
+    "image": "/src/assets/course-marketing.jpg",
+    "enrolled": 1250,
+    "rating": 4.8,
+    "lessons": 24,
+    "category": "Marketing"
+  },
+  {
+    "id": "2",
+    "title": "Web Development Bootcamp",
+    "description": "Learn HTML, CSS, JavaScript, React and build real-world projects from scratch",
+    "instructor": "Mohamed Sesay",
+    "duration": "12 weeks",
+    "level": "Intermediate",
+    "image": "/src/assets/course-web-dev.jpg",
+    "enrolled": 2100,
+    "rating": 4.9,
+    "lessons": 48,
+    "category": "Technology"
+  },
+  {
+    "id": "3",
+    "title": "Entrepreneurship & Business Planning",
+    "description": "Build your business from idea to launch with expert guidance and practical tools",
+    "instructor": "Fatmata Koroma",
+    "duration": "6 weeks",
+    "level": "Beginner",
+    "image": "/src/assets/course-business.jpg",
+    "enrolled": 980,
+    "rating": 4.7,
+    "lessons": 18,
+    "category": "Business"
+  },
+  {
+    "id": "4",
+    "title": "Graphic Design Mastery",
+    "description": "Create stunning visual designs using industry-standard tools and techniques",
+    "instructor": "Aminata Kamara",
+    "duration": "10 weeks",
+    "level": "Intermediate",
+    "image": "/src/assets/course-design.jpg",
+    "enrolled": 1540,
+    "rating": 4.8,
+    "lessons": 32,
+    "category": "Design"
+  },
+  {
+    "id": "5",
+    "title": "Data Analysis with Python",
+    "description": "Learn data analysis, visualization and make data-driven decisions",
+    "instructor": "John Kamara",
+    "duration": "8 weeks",
+    "level": "Advanced",
+    "image": "/src/assets/course-data-science.jpg",
+    "enrolled": 890,
+    "rating": 4.9,
+    "lessons": 28,
+    "category": "Technology"
+  },
+  {
+    "id": "6",
+    "title": "Social Media Marketing",
+    "description": "Build and grow your brand presence across all major social platforms",
+    "instructor": "Isatu Bangura",
+    "duration": "6 weeks",
+    "level": "Beginner",
+    "image": "/src/assets/course-marketing.jpg",
+    "enrolled": 1320,
+    "rating": 4.6,
+    "lessons": 20,
+    "category": "Marketing"
+  }
+]

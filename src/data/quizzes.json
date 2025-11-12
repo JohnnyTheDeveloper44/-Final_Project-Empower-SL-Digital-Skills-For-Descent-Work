@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "lessonId": "1",
+    "title": "HTML Basics Quiz",
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does HTML stand for?",
+        "options": [
+          "Hyper Text Markup Language",
+          "High Tech Modern Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q2",
+        "question": "Which tag is used for the largest heading?",
+        "options": ["<head>", "<h6>", "<h1>", "<heading>"],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q3",
+        "question": "What is the correct HTML for creating a hyperlink?",
+        "options": [
+          "<a url='http://example.com'>",
+          "<a href='http://example.com'>",
+          "<link>http://example.com</link>",
+          "<hyperlink>http://example.com</hyperlink>"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "courseId": "2",
+    "title": "Introduction to HTML",
+    "description": "Learn the basics of HTML and create your first web page",
+    "duration": "45 min",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "content": "Welcome to the first lesson! In this lesson, you'll learn about HTML structure, tags, elements, and how to create a basic web page. HTML (HyperText Markup Language) is the standard markup language for creating web pages.",
+    "completed": false
+  },
+  {
+    "id": "2",
+    "courseId": "2",
+    "title": "CSS Fundamentals",
+    "description": "Style your web pages with CSS",
+    "duration": "60 min",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "content": "Learn how to make your websites beautiful with CSS. We'll cover selectors, properties, the box model, flexbox, and responsive design.",
+    "completed": false
+  },
+  {
+    "id": "3",
+    "courseId": "2",
+    "title": "JavaScript Basics",
+    "description": "Add interactivity to your websites",
+    "duration": "75 min",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "content": "Discover the power of JavaScript! Learn variables, functions, loops, and how to manipulate the DOM to create interactive web experiences.",
+    "completed": false
+  }
+]
