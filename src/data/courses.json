@@ -6,7 +6,7 @@
     "instructor": "Sarah Johnson",
     "duration": "8 weeks",
     "level": "Beginner",
-    "image": "/src/assets/course-marketing.jpg",
+    "image": "src/assets/course-marketing.jpg",
     "enrolled": 1250,
     "rating": 4.8,
     "lessons": 24,
