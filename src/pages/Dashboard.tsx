@@ -52,7 +52,7 @@ const Dashboard = () => {
       <Navbar />
       
       <div className="container mx-auto px-4 pt-24 pb-12">
-        <div className="mb-8">
+        <div className="mb-8 animate-fade-in flex flex-col">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">
             Welcome back, <span className="text-primary">{user.name}</span>!
           </h1>
@@ -60,8 +60,8 @@ const Dashboard = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <Card className="hover:shadow-lg transition-shadow">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 items-stretch">
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Enrolled Courses
@@ -73,7 +73,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col" style={{ animationDelay: '100ms' }}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Hours Learned
@@ -85,7 +85,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col" style={{ animationDelay: '200ms' }}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Certificates
@@ -97,7 +97,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col" style={{ animationDelay: '300ms' }}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Avg. Progress
@@ -111,11 +111,11 @@ const Dashboard = () => {
         </div>
 
         {/* Continue Learning */}
-        <div className="mb-12">
+        <div className="mb-12 animate-fade-in flex flex-col">
           <h2 className="text-2xl font-bold mb-6">Continue Learning</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {enrolledCourses.map((course) => (
-              <Card key={course.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {enrolledCourses.map((course, idx) => (
+              <Card key={course.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col" style={{ animationDelay: `${idx * 100}ms` }}>
                 <img 
                   src={course.image} 
                   alt={course.title}
@@ -150,7 +150,7 @@ const Dashboard = () => {
         </div>
 
         {/* Recommended Courses */}
-        <div>
+        <div className="animate-fade-in flex flex-col">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Recommended for You</h2>
             <Link to="/courses">
@@ -158,8 +158,8 @@ const Dashboard = () => {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="hover:shadow-lg transition-shadow">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col">
               <CardHeader>
                 <CardTitle>Graphic Design Mastery</CardTitle>
                 <CardDescription>Perfect match for your interests</CardDescription>
@@ -171,7 +171,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col" style={{ animationDelay: '100ms' }}>
               <CardHeader>
                 <CardTitle>Data Analysis with Python</CardTitle>
                 <CardDescription>Boost your technical skills</CardDescription>
@@ -183,7 +183,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in flex flex-col" style={{ animationDelay: '200ms' }}>
               <CardHeader>
                 <CardTitle>Social Media Marketing</CardTitle>
                 <CardDescription>Expand your marketing knowledge</CardDescription>

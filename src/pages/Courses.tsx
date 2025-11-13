@@ -30,20 +30,11 @@ const Courses = () => {
   const [levelFilter, setLevelFilter] = useState("all");
 
   useEffect(() => {
-    // Load courses from JSON
-    fetch('/src/data/courses.json')
-      .then(res => res.json())
-      .then(data => {
-        setCourses(data);
-        setFilteredCourses(data);
-      })
-      .catch(() => {
-        // Fallback data if fetch fails
-        import('@/data/courses.json').then(module => {
-          setCourses(module.default);
-          setFilteredCourses(module.default);
-        });
-      });
+    // Load courses directly from import
+    import('@/data/courses.json').then(module => {
+      setCourses(module.default);
+      setFilteredCourses(module.default);
+    });
   }, []);
 
   useEffect(() => {
@@ -73,7 +64,7 @@ const Courses = () => {
       
       <div className="container mx-auto px-4 pt-24 pb-12">
         {/* Header */}
-        <div className="text-center mb-12 space-y-4">
+        <div className="text-center mb-12 space-y-4 animate-fade-in flex flex-col items-center">
           <h1 className="text-2xl md:text-4xl font-bold">
             Explore Our <span className="text-primary">Courses</span>
           </h1>
@@ -83,8 +74,8 @@ const Courses = () => {
         </div>
 
         {/* Filters */}
-        <div className="bg-card border border-border rounded-lg p-6 mb-8 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-card border border-border rounded-lg p-6 mb-8 space-y-4 animate-scale-in">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
@@ -127,11 +118,11 @@ const Courses = () => {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {filteredCourses.map((course, index) => (
             <Card 
               key={course.id} 
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in flex flex-col"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className="relative overflow-hidden">

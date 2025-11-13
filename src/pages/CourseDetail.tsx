@@ -12,7 +12,7 @@ const CourseDetail = () => {
   const [course, setCourse] = useState<any>(null);
 
   useEffect(() => {
-    // Load course data
+    // Load course data directly from import
     import('@/data/courses.json').then(module => {
       const foundCourse = module.default.find((c: any) => c.id === id);
       setCourse(foundCourse);
@@ -37,9 +37,9 @@ const CourseDetail = () => {
       
       <div className="container mx-auto px-4 pt-24 pb-12">
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          <div className="lg:col-span-2 space-y-6">
-            <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 items-start animate-fade-in">
+          <div className="lg:col-span-2 space-y-6 flex flex-col">
+            <div className="space-y-4 flex flex-col">
               <div className="flex items-center gap-2 text-sm">
                 <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
                   {course.category}
@@ -53,7 +53,7 @@ const CourseDetail = () => {
               
               <p className="text-lg text-muted-foreground">{course.description}</p>
 
-              <div className="flex flex-wrap items-center gap-6 text-sm">
+              <div className="flex flex-wrap items-center gap-6 text-sm animate-scale-in">
                 <div className="flex items-center gap-2">
                   <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   <span className="font-medium">{course.rating}</span>
@@ -91,13 +91,13 @@ const CourseDetail = () => {
             <img 
               src={course.image}
               alt={course.title}
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
             />
           </div>
 
           {/* Enrollment Card */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-24 border-2">
+          <div className="lg:col-span-1 flex flex-col">
+            <Card className="sticky top-24 border-2 animate-scale-in hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl">Enroll in This Course</CardTitle>
                 <CardDescription>Get lifetime access to all lessons</CardDescription>
@@ -124,7 +124,7 @@ const CourseDetail = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg py-6">
+                <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg py-6 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                   Enroll Now
                 </Button>
 
@@ -137,15 +137,15 @@ const CourseDetail = () => {
         </div>
 
         {/* Course Content Tabs */}
-        <Tabs defaultValue="curriculum" className="space-y-6">
+        <Tabs defaultValue="curriculum" className="space-y-6 animate-fade-in flex flex-col">
           <TabsList className="grid w-full grid-cols-3 max-w-md">
             <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
             <TabsTrigger value="about">About</TabsTrigger>
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="curriculum" className="space-y-4">
-            <Card>
+          <TabsContent value="curriculum" className="space-y-4 flex flex-col">
+            <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>Course Curriculum</CardTitle>
                 <CardDescription>{lessons.length} lessons • {course.duration}</CardDescription>
@@ -156,7 +156,7 @@ const CourseDetail = () => {
                     key={lesson.id}
                     className={`flex items-center justify-between p-4 rounded-lg border ${
                       lesson.locked ? 'bg-muted/20' : 'bg-card hover:bg-accent/5 cursor-pointer'
-                    } transition-colors`}
+                    } transition-all duration-300 hover:-translate-y-1`}
                   >
                     <div className="flex items-center gap-4">
                       <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-medium text-sm">
@@ -178,8 +178,8 @@ const CourseDetail = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="about" className="space-y-4">
-            <Card>
+          <TabsContent value="about" className="space-y-4 flex flex-col">
+            <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>What You'll Learn</CardTitle>
               </CardHeader>
@@ -203,7 +203,7 @@ const CourseDetail = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>Requirements</CardTitle>
               </CardHeader>
@@ -215,8 +215,8 @@ const CourseDetail = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="reviews" className="space-y-4">
-            <Card>
+          <TabsContent value="reviews" className="space-y-4 flex flex-col">
+            <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>Student Reviews</CardTitle>
                 <div className="flex items-center gap-2">

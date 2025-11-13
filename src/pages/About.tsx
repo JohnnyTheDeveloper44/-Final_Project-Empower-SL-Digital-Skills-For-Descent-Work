@@ -63,7 +63,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6 animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6 animate-fade-in flex flex-col items-center">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold">
               About <span className="text-primary">LearnHub Pro</span>
             </h1>
@@ -77,14 +77,14 @@ const About = () => {
       {/* Mission, Vision, Values */}
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {values.map((value, index) => (
               <Card 
                 key={index} 
-                className="p-6 md:p-8 hover:shadow-lg transition-all hover:border-primary/50 animate-fade-in"
+                className="p-6 md:p-8 hover:shadow-lg transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 animate-fade-in flex flex-col items-center text-center"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-4 md:mb-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-4 md:mb-6 hover:scale-110 hover:rotate-6 transition-all duration-300">
                   <value.icon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">{value.title}</h3>
@@ -96,21 +96,21 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-br from-primary/10 to-accent/10">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-primary/10 to-accent/10 animate-fade-in">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-8 md:mb-12 flex flex-col items-center">
             <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
               Our Impact in <span className="text-primary">Numbers</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className="text-center space-y-2 md:space-y-4 animate-scale-in"
+                className="text-center space-y-2 md:space-y-4 animate-scale-in flex flex-col items-center"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-primary/20 rounded-full mb-2 md:mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-primary/20 rounded-full mb-2 md:mb-4 hover:scale-110 transition-transform duration-300">
                   <stat.icon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                 </div>
                 <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
@@ -124,11 +124,11 @@ const About = () => {
       {/* Story Section */}
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
+          <div className="max-w-4xl mx-auto space-y-6 md:space-y-8 flex flex-col items-center">
             <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-12">
               Our <span className="text-primary">Story</span>
             </h2>
-            <Card className="p-6 md:p-8 lg:p-12">
+            <Card className="p-6 md:p-8 lg:p-12 hover:shadow-lg transition-shadow duration-300 animate-fade-in">
               <div className="space-y-4 md:space-y-6 text-sm md:text-base text-muted-foreground">
                 <p>
                   LearnHub Pro was founded in 2020 with a simple yet powerful vision: to make high-quality digital education accessible to everyone, everywhere. Our founders, experienced educators and technologists, recognized that traditional education systems weren't keeping pace with the rapidly evolving digital landscape.
@@ -151,7 +151,7 @@ const About = () => {
       {/* Team Section */}
       <section className="py-12 md:py-20 bg-card/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-8 md:mb-12 flex flex-col items-center">
             <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
               Meet Our <span className="text-primary">Team</span>
             </h2>
@@ -160,17 +160,17 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
             {team.map((member, index) => (
               <Card 
                 key={index} 
-                className="p-4 md:p-6 text-center hover:shadow-lg transition-all hover:-translate-y-2 animate-fade-in"
+                className="p-4 md:p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2 animate-fade-in flex flex-col items-center"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full mx-auto mb-3 md:mb-4"
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-full mx-auto mb-3 md:mb-4 hover:scale-110 transition-transform duration-300"
                 />
                 <h3 className="text-base md:text-lg font-bold mb-1 md:mb-2">{member.name}</h3>
                 <p className="text-xs md:text-sm text-primary mb-2 md:mb-3">{member.role}</p>
