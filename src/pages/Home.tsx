@@ -292,7 +292,7 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/courses">
-                <Button size="lg" variant="outline" className="text-lg px-8 border-white hover:bg-white hover:scale-105 transition-all duration-300 text-slate-950">
+                <Button size="lg" variant="outline" className="text-lg px-8 border-white hover:scale-105 transition-all duration-300 text-slate-50 bg-slate-950 hover:bg-slate-800">
                   Browse Courses
                 </Button>
               </Link>
