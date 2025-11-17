@@ -2,8 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { Target, Eye, Heart, Users, Award, BookOpen } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const About = () => {
+  const { t } = useLanguage();
   const values = [
     {
       icon: Target,

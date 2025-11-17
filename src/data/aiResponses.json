@@ -1,0 +1,88 @@
+{
+  "general": [
+    {
+      "keywords": ["hello", "hi", "hey", "greetings"],
+      "response": "Kushɛ! I'm your AI learning assistant. How can I help you with your studies today? Feel free to ask me about any lesson, concept, or topic you're learning!"
+    },
+    {
+      "keywords": ["help", "assist", "support"],
+      "response": "I'm here to help! You can ask me to:\n• Explain a concept in simple terms\n• Give you examples\n• Create practice questions\n• Provide study tips\n• Translate content to Krio\n• Review your code\n\nWhat would you like help with?"
+    },
+    {
+      "keywords": ["what can you do", "capabilities", "features"],
+      "response": "I can help you with:\n✓ Explaining complex topics simply\n✓ Providing real-world examples\n✓ Creating practice exercises\n✓ Answering questions about Sierra Leone tech opportunities\n✓ Translating between English and Krio\n✓ Reviewing and improving your code\n✓ Giving study and career advice\n\nJust ask me anything!"
+    }
+  ],
+  "web-development": [
+    {
+      "keywords": ["html", "markup", "tags", "elements"],
+      "response": "HTML (HyperText Markup Language) is the foundation of web pages. Think of it like building a house:\n\n• <head> = roof (metadata, not visible)\n• <body> = main structure (what you see)\n• <div> = rooms (containers)\n• <p> = furniture (content)\n\nIn Sierra Leone context: Building a website for a Freetown restaurant would start with HTML structure. Would you like an example?"
+    },
+    {
+      "keywords": ["css", "style", "design", "colors", "layout"],
+      "response": "CSS makes websites beautiful! It's like decorating your house after HTML builds it.\n\nKey concepts:\n• Selectors = Which element to style\n• Properties = What to change (color, size, position)\n• Values = The specific change\n\nExample for SL: Want to style a website using Sierra Leone's flag colors (green, white, blue)? I can show you how!"
+    },
+    {
+      "keywords": ["javascript", "js", "interactive", "dynamic"],
+      "response": "JavaScript makes websites interactive! While HTML is structure and CSS is style, JavaScript is the behavior.\n\nReal SL example: Creating a currency converter for Leones (Le) to Dollars ($):\n\n```javascript\nfunction convertToLeones(dollars) {\n  const rate = 20000; // Example rate\n  return dollars * rate;\n}\n```\n\nWant to see more examples?"
+    },
+    {
+      "keywords": ["react", "component", "state"],
+      "response": "React is a popular JavaScript library for building user interfaces. Think of it as building with Lego blocks - each piece (component) can be reused!\n\nIn Krio: React kin ɛp yu bil wɛbsayt kwik kwik!\n\nKey concepts:\n• Components = Reusable pieces\n• Props = Data passed between components\n• State = Data that changes\n\nWant a Sierra Leone-themed example?"
+    }
+  ],
+  "programming": [
+    {
+      "keywords": ["variable", "const", "let", "var"],
+      "response": "Variables store information in programming, like boxes storing things!\n\nIn JavaScript:\n• let = box you can change\n• const = locked box (can't change)\n• var = old-style box (avoid using)\n\nSierra Leone example:\n```javascript\nconst country = 'Sierra Leone';\nlet population = 8000000;\nlet capital = 'Freetown';\n```\n\nMake sense?"
+    },
+    {
+      "keywords": ["function", "method", "procedure"],
+      "response": "Functions are like recipes - instructions you can reuse!\n\nExample: Calculating mobile data costs in Sierra Leone:\n\n```javascript\nfunction calculateDataCost(gigabytes) {\n  const pricePerGB = 50000; // Le per GB\n  return gigabytes * pricePerGB;\n}\n\nconsole.log(calculateDataCost(5)); // 250000 Le\n```\n\nFunctions help avoid repeating code. Want more examples?"
+    },
+    {
+      "keywords": ["loop", "for", "while", "iteration"],
+      "response": "Loops repeat actions - like doing something over and over!\n\nTypes:\n• for = Know how many times\n• while = Until condition is met\n• forEach = For each item in list\n\nSL Example - Listing provinces:\n```javascript\nconst provinces = ['Northern', 'Southern', 'Eastern', 'Western'];\n\nfor (let province of provinces) {\n  console.log(province + ' Province');\n}\n```\n\nNeed help with your specific loop problem?"
+    },
+    {
+      "keywords": ["array", "list", "collection"],
+      "response": "Arrays store multiple items in one variable - like a shopping list!\n\nSierra Leone example:\n```javascript\nconst slCities = ['Freetown', 'Bo', 'Kenema', 'Makeni'];\n\nconsole.log(slCities[0]); // 'Freetown'\nconsole.log(slCities.length); // 4\nslCities.push('Koidu'); // Add new city\n```\n\nArrays are super useful! What would you like to store?"
+    },
+    {
+      "keywords": ["object", "json", "key value"],
+      "response": "Objects store related data together, like a person's information!\n\nSierra Leone student example:\n```javascript\nconst student = {\n  name: 'Aminata',\n  age: 22,\n  city: 'Freetown',\n  course: 'Web Development',\n  skills: ['HTML', 'CSS', 'JavaScript']\n};\n\nconsole.log(student.name); // 'Aminata'\n```\n\nObjects organize your data. Need help structuring your data?"
+    }
+  ],
+  "career": [
+    {
+      "keywords": ["job", "career", "work", "employment", "opportunities"],
+      "response": "Great question about careers! Sierra Leone's tech sector is growing!\n\n🇸🇱 Local opportunities:\n• Orange Sierra Leone (Mobile dev, Networks)\n• IPredict (Data Science, AI)\n• Salone Tech (Web development)\n• Freelancing for international clients\n\nTop skills needed:\n✓ Web Development (HTML, CSS, JavaScript)\n✓ Mobile Development (React Native, Flutter)\n✓ Data Analysis (Python, Excel)\n✓ UI/UX Design\n\nWould you like tips on how to prepare?"
+    },
+    {
+      "keywords": ["salary", "pay", "income", "money", "earnings"],
+      "response": "Tech salaries in Sierra Leone vary by role and experience:\n\n💰 Approximate monthly salaries:\n• Junior Developer: Le 3-5M ($150-250)\n• Mid-level Developer: Le 6-10M ($300-500)\n• Senior Developer: Le 12-20M ($600-1000)\n• Freelance (International): Le 15-40M ($750-2000)\n\nTips to increase earnings:\n✓ Build a strong portfolio\n✓ Work with international clients\n✓ Specialize in high-demand skills\n✓ Network in the community\n\nWant advice on building your portfolio?"
+    },
+    {
+      "keywords": ["freelance", "remote", "online work"],
+      "response": "Freelancing is perfect for Sierra Leone developers!\n\n🌍 Top platforms:\n• Upwork (Most popular)\n• Fiverr (Quick gigs)\n• Freelancer.com\n• Toptal (Premium, high pay)\n\n✅ Success tips:\n1. Start with competitive rates\n2. Build 5-star reviews\n3. Create a professional profile\n4. Showcase SL-based projects\n5. Reliable internet is key!\n\nMany SL developers earn 10x local rates! Interested in getting started?"
+    },
+    {
+      "keywords": ["portfolio", "projects", "showcase"],
+      "response": "A strong portfolio is your ticket to good opportunities!\n\n📁 What to include:\n1. Personal website (shows your skills)\n2. 3-5 best projects with:\n   • Screenshots/demo\n   • Technologies used\n   • Problem solved\n   • Link to live site\n3. GitHub profile (code samples)\n4. Contact information\n\n🇸🇱 SL-specific ideas:\n• Local business website\n• Le to $ converter app\n• SL tourism guide\n• Marketplace for SL products\n\nWant help planning your portfolio?"
+    }
+  ],
+  "study": [
+    {
+      "keywords": ["study tips", "how to learn", "learning strategy"],
+      "response": "Excellent! Here are proven study strategies:\n\n📚 Best practices:\n• 🕐 Pomodoro: 25 min study, 5 min break\n• 🔄 Practice by building real projects\n• 📝 Take notes in your own words\n• 👥 Join study groups (online/Freetown)\n• 🎯 Set daily goals\n\n🇸🇱 For SL students:\n✓ Download lessons when you have WiFi\n✓ Study during stable power hours\n✓ Use mobile-friendly resources\n✓ Join SL dev communities\n\nWhat's your biggest learning challenge?"
+    },
+    {
+      "keywords": ["motivation", "inspired", "keep going"],
+      "response": "You can do this! Remember why you started! 💪\n\n🌟 Stay motivated:\n• Set small daily wins\n• Celebrate every lesson completed\n• Connect with other SL learners\n• Remember: Every expert started as a beginner\n• Think about the opportunities ahead\n\n🇸🇱 Sierra Leone success stories:\nMany developers from Freetown, Bo, and Kenema are now working internationally, earning good money, and building the future!\n\nYou're investing in your future. Na yu tam! (It's your time!)\n\nWhat's your goal?"
+    },
+    {
+      "keywords": ["practice", "exercise", "hands on"],
+      "response": "Practice is KEY to becoming a developer! 👨‍💻\n\n✅ How to practice effectively:\n1. Code along with tutorials first\n2. Then try rebuilding without looking\n3. Modify examples with your ideas\n4. Build mini-projects weekly\n5. Debug your own errors (great learning!)\n\n🇸🇱 Practice ideas:\n• Build a Krio dictionary app\n• Create a SL recipe website\n• Make a Freetown events calendar\n• Design an agribusiness marketplace\n\nRemember: Na practice mek am pafɛkt! (Practice makes perfect!)\n\nWant a specific practice challenge?"
+    }
+  ]
+}

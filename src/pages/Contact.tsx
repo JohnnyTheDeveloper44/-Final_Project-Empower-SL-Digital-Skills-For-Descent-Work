@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/hooks/useLanguage";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ const Contact = () => {
   const {
     toast
   } = useToast();
+  const { t } = useLanguage();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

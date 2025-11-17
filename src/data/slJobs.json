@@ -1,0 +1,182 @@
+[
+  {
+    "id": "job1",
+    "title": "Junior Web Developer",
+    "company": "Orange Sierra Leone",
+    "location": "Freetown",
+    "type": "Full-time",
+    "salary": "Le 4,000,000 - 6,000,000/month",
+    "description": "Join our digital team to build innovative web solutions for Sierra Leone's leading telecom provider.",
+    "requirements": [
+      "HTML, CSS, JavaScript proficiency",
+      "React or Vue.js experience",
+      "Good communication in English and Krio",
+      "Based in or willing to relocate to Freetown"
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "React"],
+    "posted": "2 days ago",
+    "logo": "🍊"
+  },
+  {
+    "id": "job2",
+    "title": "Mobile App Developer",
+    "company": "IPredict",
+    "location": "Remote (Sierra Leone)",
+    "type": "Contract",
+    "salary": "Le 8,000,000 - 12,000,000/month",
+    "description": "Build mobile applications for data collection and analysis across Sierra Leone.",
+    "requirements": [
+      "React Native or Flutter experience",
+      "Understanding of REST APIs",
+      "Portfolio of published apps",
+      "Available for remote work"
+    ],
+    "skills": ["React Native", "Flutter", "Mobile Development", "API"],
+    "posted": "5 days ago",
+    "logo": "📱"
+  },
+  {
+    "id": "job3",
+    "title": "UI/UX Designer",
+    "company": "Salone Tech Solutions",
+    "location": "Bo",
+    "type": "Full-time",
+    "salary": "Le 5,000,000 - 8,000,000/month",
+    "description": "Design beautiful and functional interfaces for local businesses and startups.",
+    "requirements": [
+      "Figma or Adobe XD proficiency",
+      "Understanding of user-centered design",
+      "Portfolio of design work",
+      "Cultural awareness of Sierra Leone market"
+    ],
+    "skills": ["Figma", "UI Design", "UX Design", "Adobe XD"],
+    "posted": "1 week ago",
+    "logo": "🎨"
+  },
+  {
+    "id": "job4",
+    "title": "Data Analyst",
+    "company": "Ministry of Health - Digital Health Unit",
+    "location": "Freetown",
+    "type": "Full-time",
+    "salary": "Le 6,000,000 - 10,000,000/month",
+    "description": "Analyze health data to improve healthcare delivery across Sierra Leone.",
+    "requirements": [
+      "Excel and Python proficiency",
+      "Data visualization skills (Tableau/Power BI)",
+      "Statistical analysis knowledge",
+      "Experience with healthcare data (preferred)"
+    ],
+    "skills": ["Python", "Excel", "Data Analysis", "Tableau"],
+    "posted": "3 days ago",
+    "logo": "📊"
+  },
+  {
+    "id": "job5",
+    "title": "WordPress Developer",
+    "company": "Freetown Media House",
+    "location": "Freetown",
+    "type": "Part-time",
+    "salary": "Le 2,500,000 - 4,000,000/month",
+    "description": "Develop and maintain WordPress websites for local businesses and NGOs.",
+    "requirements": [
+      "WordPress theme and plugin development",
+      "PHP and MySQL knowledge",
+      "SEO optimization skills",
+      "Available 20 hours/week"
+    ],
+    "skills": ["WordPress", "PHP", "MySQL", "SEO"],
+    "posted": "1 day ago",
+    "logo": "🌐"
+  },
+  {
+    "id": "job6",
+    "title": "Software Engineer",
+    "company": "Sierra Wireless Communications",
+    "location": "Freetown",
+    "type": "Full-time",
+    "salary": "Le 10,000,000 - 15,000,000/month",
+    "description": "Build scalable backend systems for our growing telecommunications infrastructure.",
+    "requirements": [
+      "Node.js or Python backend experience",
+      "Database design (PostgreSQL/MongoDB)",
+      "API development and integration",
+      "3+ years professional experience"
+    ],
+    "skills": ["Node.js", "Python", "PostgreSQL", "API Design"],
+    "posted": "4 days ago",
+    "logo": "📡"
+  },
+  {
+    "id": "job7",
+    "title": "Frontend Developer",
+    "company": "Bintumani Tech Hub",
+    "location": "Freetown",
+    "type": "Full-time",
+    "salary": "Le 5,000,000 - 8,000,000/month",
+    "description": "Create responsive web applications for startups in our tech incubator.",
+    "requirements": [
+      "Advanced JavaScript/TypeScript",
+      "React.js expertise",
+      "Tailwind CSS or similar",
+      "Git version control"
+    ],
+    "skills": ["React", "TypeScript", "Tailwind CSS", "Git"],
+    "posted": "6 days ago",
+    "logo": "⚛️"
+  },
+  {
+    "id": "job8",
+    "title": "Digital Marketing Specialist",
+    "company": "Salone Marketplace",
+    "location": "Remote (Sierra Leone)",
+    "type": "Full-time",
+    "salary": "Le 4,000,000 - 7,000,000/month",
+    "description": "Drive digital marketing campaigns for Sierra Leone's fastest-growing e-commerce platform.",
+    "requirements": [
+      "Social media marketing experience",
+      "Google Analytics and SEO",
+      "Content creation skills",
+      "Understanding of SL market"
+    ],
+    "skills": ["Digital Marketing", "SEO", "Social Media", "Analytics"],
+    "posted": "2 weeks ago",
+    "logo": "📣"
+  },
+  {
+    "id": "job9",
+    "title": "Cybersecurity Analyst",
+    "company": "Standard Chartered Bank SL",
+    "location": "Freetown",
+    "type": "Full-time",
+    "salary": "Le 12,000,000 - 18,000,000/month",
+    "description": "Protect our banking systems and customer data from cyber threats.",
+    "requirements": [
+      "Network security knowledge",
+      "Understanding of common vulnerabilities",
+      "Security certifications (preferred)",
+      "Banking sector experience (plus)"
+    ],
+    "skills": ["Cybersecurity", "Network Security", "Penetration Testing"],
+    "posted": "1 week ago",
+    "logo": "🔒"
+  },
+  {
+    "id": "job10",
+    "title": "Technical Support Engineer",
+    "company": "Africell Sierra Leone",
+    "location": "Freetown, Bo, Kenema",
+    "type": "Full-time",
+    "salary": "Le 3,500,000 - 5,500,000/month",
+    "description": "Provide technical support for our telecom services and network infrastructure.",
+    "requirements": [
+      "Technical troubleshooting skills",
+      "Customer service excellence",
+      "English and Krio fluency",
+      "Willingness to travel within SL"
+    ],
+    "skills": ["Technical Support", "Networking", "Customer Service"],
+    "posted": "3 days ago",
+    "logo": "📞"
+  }
+]

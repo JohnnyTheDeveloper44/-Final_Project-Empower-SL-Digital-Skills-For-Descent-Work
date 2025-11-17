@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Star, Users, Clock, Search, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface Course {
   id: string;
@@ -28,6 +29,7 @@ const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Load courses directly from import
@@ -66,10 +68,10 @@ const Courses = () => {
         {/* Header */}
         <div className="text-center mb-12 space-y-4 animate-fade-in flex flex-col items-center">
           <h1 className="text-2xl md:text-4xl font-bold">
-            Explore Our <span className="text-primary">Courses</span>
+            {t("Explore Our")} <span className="text-primary">{t("Courses")}</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Discover world-class courses designed to help you build in-demand digital skills
+            {t("Discover world-class courses designed to help you build in-demand digital skills")}
           </p>
         </div>
 
@@ -79,7 +81,7 @@ const Courses = () => {
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search courses..."
+                placeholder={t("Search courses...")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -88,32 +90,32 @@ const Courses = () => {
 
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
               <SelectTrigger>
-                <SelectValue placeholder="Category" />
+                <SelectValue placeholder={t("Category")} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
-                <SelectItem value="Technology">Technology</SelectItem>
-                <SelectItem value="Marketing">Marketing</SelectItem>
-                <SelectItem value="Business">Business</SelectItem>
-                <SelectItem value="Design">Design</SelectItem>
+                <SelectItem value="all">{t("All Categories")}</SelectItem>
+                <SelectItem value="Technology">{t("Technology")}</SelectItem>
+                <SelectItem value="Marketing">{t("Marketing")}</SelectItem>
+                <SelectItem value="Business">{t("Business")}</SelectItem>
+                <SelectItem value="Design">{t("Design")}</SelectItem>
               </SelectContent>
             </Select>
 
             <Select value={levelFilter} onValueChange={setLevelFilter}>
               <SelectTrigger>
-                <SelectValue placeholder="Level" />
+                <SelectValue placeholder={t("Level")} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Levels</SelectItem>
-                <SelectItem value="Beginner">Beginner</SelectItem>
-                <SelectItem value="Intermediate">Intermediate</SelectItem>
-                <SelectItem value="Advanced">Advanced</SelectItem>
+                <SelectItem value="all">{t("All Levels")}</SelectItem>
+                <SelectItem value="Beginner">{t("Beginner")}</SelectItem>
+                <SelectItem value="Intermediate">{t("Intermediate")}</SelectItem>
+                <SelectItem value="Advanced">{t("Advanced")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="text-sm text-muted-foreground">
-            Showing <span className="font-medium text-foreground">{filteredCourses.length}</span> courses
+            {t("Showing")} <span className="font-medium text-foreground">{filteredCourses.length}</span> {t("courses")}
           </div>
         </div>
 
@@ -163,16 +165,16 @@ const Courses = () => {
                     <Clock className="h-4 w-4" />
                     <span>{course.duration}</span>
                   </div>
-                  <span>{course.lessons} lessons</span>
+                  <span>{course.lessons} {t("lessons")}</span>
                 </div>
                 
-                <p className="text-sm text-muted-foreground">by {course.instructor}</p>
+                <p className="text-sm text-muted-foreground">{t("by")} {course.instructor}</p>
               </CardContent>
               
               <CardFooter>
                 <Link to={`/course/${course.id}`} className="w-full">
                   <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                    View Details <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("View Details")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
               </CardFooter>
@@ -182,7 +184,7 @@ const Courses = () => {
 
         {filteredCourses.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground text-lg">No courses found matching your criteria.</p>
+            <p className="text-muted-foreground text-lg">{t("No courses found matching your criteria")}</p>
           </div>
         )}
       </div>

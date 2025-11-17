@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { GraduationCap, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+
 const Footer = () => {
+  const { t } = useLanguage();
   return <footer className="bg-card border-t border-border mt-20 animate-fade-in">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
@@ -15,7 +18,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-muted-foreground text-sm">
-              Empowering learners worldwide with quality education and practical skills.
+              {t("Empowering learners worldwide with quality education and practical skills")}
             </p>
           </div>
 
@@ -23,21 +26,21 @@ const Footer = () => {
           <div className="animate-scale-in" style={{
           animationDelay: '100ms'
         }}>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4">{t("Quick Links")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/courses" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm hover:translate-x-1 inline-block">
-                  All Courses
+                  {t("All Courses")}
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm hover:translate-x-1 inline-block">
-                  About Us
+                  {t("About Us")}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm hover:translate-x-1 inline-block">
-                  Contact
+                  {t("Contact")}
                 </Link>
               </li>
             </ul>
@@ -47,21 +50,21 @@ const Footer = () => {
           <div className="animate-scale-in" style={{
           animationDelay: '200ms'
         }}>
-            <h3 className="font-semibold mb-4">Support</h3>
+            <h3 className="font-semibold mb-4">{t("Support")}</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm hover:translate-x-1 inline-block">
-                  Help Center
+                  {t("Help Center")}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm hover:translate-x-1 inline-block">
-                  Terms of Service
+                  {t("Terms of Service")}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm hover:translate-x-1 inline-block">
-                  Privacy Policy
+                  {t("Privacy Policy")}
                 </a>
               </li>
             </ul>
@@ -71,7 +74,7 @@ const Footer = () => {
           <div className="animate-scale-in" style={{
           animationDelay: '300ms'
         }}>
-            <h3 className="font-semibold mb-4">Follow Us</h3>
+            <h3 className="font-semibold mb-4">{t("Follow Us")}</h3>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125 hover:-translate-y-1 inline-block">
                 <Facebook className="h-5 w-5" />

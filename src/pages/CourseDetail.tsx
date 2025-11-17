@@ -6,30 +6,73 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Star, Users, Clock, BookOpen, Award, CheckCircle, PlayCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/hooks/useLanguage";
+import { useToast } from "@/hooks/use-toast";
+import { completeLesson, completeCourse, getUserProgress } from "@/utils/gamification";
+import { QuizComponent } from "@/components/QuizComponent";
+import quizzesData from "@/data/quizzes.json";
 
 const CourseDetail = () => {
   const { id } = useParams();
   const [course, setCourse] = useState<any>(null);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const { t } = useLanguage();
+  const { toast } = useToast();
+
+  const progress = getUserProgress();
+  const completedLessons = progress.completedLessons || [];
+  const courseCompleted = progress.completedCourses?.includes(id || '') || false;
 
   useEffect(() => {
-    // Load course data directly from import
     import('@/data/courses.json').then(module => {
       const foundCourse = module.default.find((c: any) => c.id === id);
       setCourse(foundCourse);
     });
   }, [id]);
 
+  const handleCompleteLesson = (lessonId: string) => {
+    const result = completeLesson(lessonId);
+    toast({
+      title: t("Lesson Completed!"),
+      description: `${t("You earned")} ${result.xpGained} XP!`,
+    });
+    if (result.leveledUp) {
+      setTimeout(() => {
+        toast({
+          title: t("Level Up!"),
+          description: t("You've reached a new level!"),
+        });
+      }, 1000);
+    }
+  };
+
+  const handleCompleteCourse = () => {
+    if (!id) return;
+    const result = completeCourse(id);
+    toast({
+      title: t("Course Completed!"),
+      description: `${t("You earned")} ${result.xpGained} XP!`,
+    });
+    setTimeout(() => {
+      toast({
+        title: t("Jobs Section Unlocked!"),
+        description: t("You can now browse job opportunities"),
+      });
+    }, 2000);
+  };
+
   if (!course) {
     return <div className="min-h-screen bg-background pt-24"><Navbar /><div className="container mx-auto px-4"><p className="text-center">Loading...</p></div></div>;
   }
 
   const lessons = [
-    { id: 1, title: "Introduction to HTML", duration: "45 min", locked: false },
-    { id: 2, title: "CSS Fundamentals", duration: "60 min", locked: false },
-    { id: 3, title: "JavaScript Basics", duration: "75 min", locked: false },
-    { id: 4, title: "Responsive Design", duration: "50 min", locked: true },
-    { id: 5, title: "Building Projects", duration: "90 min", locked: true },
+    { id: "1", title: "Introduction to HTML", duration: "45 min" },
+    { id: "2", title: "CSS Fundamentals", duration: "60 min" },
+    { id: "3", title: "JavaScript Basics", duration: "75 min" },
   ];
+
+  const quiz = quizzesData.find((q: any) => q.id === "1");
+  const allLessonsCompleted = lessons.every(l => completedLessons.includes(l.id));
 
   return (
     <div className="min-h-screen bg-background">
@@ -144,41 +187,63 @@ const CourseDetail = () => {
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="curriculum" className="space-y-4 flex flex-col">
+          <TabsContent value="curriculum">
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>Course Curriculum</CardTitle>
                 <CardDescription>{lessons.length} lessons • {course.duration}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                {lessons.map((lesson, index) => (
-                  <div 
-                    key={lesson.id}
-                    className={`flex items-center justify-between p-4 rounded-lg border ${
-                      lesson.locked ? 'bg-muted/20' : 'bg-card hover:bg-accent/5 cursor-pointer'
-                    } transition-all duration-300 hover:-translate-y-1`}
-                  >
+                {lessons.map((lesson) => (
+                  <div key={lesson.id} className="flex items-center justify-between p-4 rounded-lg border">
                     <div className="flex items-center gap-4">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-medium text-sm">
-                        {index + 1}
-                      </div>
+                      {completedLessons.includes(lesson.id) ? (
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      ) : (
+                        <PlayCircle className="h-5 w-5 text-muted-foreground" />
+                      )}
                       <div>
                         <p className="font-medium">{lesson.title}</p>
                         <p className="text-sm text-muted-foreground">{lesson.duration}</p>
                       </div>
                     </div>
-                    {lesson.locked ? (
-                      <Award className="h-5 w-5 text-muted-foreground" />
-                    ) : (
-                      <PlayCircle className="h-5 w-5 text-primary" />
+                    {!completedLessons.includes(lesson.id) && (
+                      <Button size="sm" onClick={() => handleCompleteLesson(lesson.id)}>
+                        {t("Complete Lesson")}
+                      </Button>
                     )}
                   </div>
                 ))}
+                
+                {allLessonsCompleted && !courseCompleted && (
+                  <Button className="w-full mt-4" onClick={handleCompleteCourse}>
+                    {t("Complete Course")}
+                  </Button>
+                )}
+                
+                {courseCompleted && (
+                  <div className="flex items-center justify-center gap-2 p-4 bg-primary/10 rounded-lg text-primary">
+                    <Award className="h-5 w-5" />
+                    <span className="font-medium">{t("Course Completed!")}</span>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </TabsContent>
 
-          <TabsContent value="about" className="space-y-4 flex flex-col">
+          <TabsContent value="quiz">
+            {quiz ? (
+              <QuizComponent 
+                quizId={quiz.id}
+                title={quiz.title}
+                questions={quiz.questions}
+              />
+            ) : (
+              <Card><CardContent className="p-8 text-center"><p className="text-muted-foreground">No quiz available yet.</p></CardContent></Card>
+            )}
+          </TabsContent>
+
+          <TabsContent value="about">
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle>What You'll Learn</CardTitle>

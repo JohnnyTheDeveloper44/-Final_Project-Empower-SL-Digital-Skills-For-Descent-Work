@@ -5,11 +5,14 @@ import { useState } from "react";
 import { getCurrentUser, logout } from "@/utils/auth";
 import { useNavigate } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const user = getCurrentUser();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleLogout = () => {
     logout();
@@ -32,37 +35,41 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
-              Home
+              {t("Home")}
             </Link>
             <Link to="/courses" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
-              Courses
+              {t("Courses")}
+            </Link>
+            <Link to="/jobs" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+              {t("Jobs")}
             </Link>
             <Link to="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
-              About
+              {t("About")}
             </Link>
             <Link to="/contact" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-110 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
-              Contact
+              {t("Contact")}
             </Link>
           </div>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageToggle />
             <ThemeToggle />
             {user ? (
               <>
                 <Link to={user.role === 'admin' ? '/admin/dashboard' : '/dashboard'}>
-                  <Button variant="ghost">Dashboard</Button>
+                  <Button variant="ghost">{t("Dashboard")}</Button>
                 </Link>
-                <Button onClick={handleLogout} variant="outline">Logout</Button>
+                <Button onClick={handleLogout} variant="outline">{t("Logout")}</Button>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="ghost">Login</Button>
+                  <Button variant="ghost">{t("Login")}</Button>
                 </Link>
                 <Link to="/signup">
                   <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                    Get Started
+                    {t("Get Started")}
                   </Button>
                 </Link>
               </>

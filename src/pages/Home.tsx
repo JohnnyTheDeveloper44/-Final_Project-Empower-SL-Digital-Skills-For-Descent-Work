@@ -5,6 +5,7 @@ import { BookOpen, Users, Award, TrendingUp, Star, ArrowRight, CheckCircle, Brie
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/hooks/useLanguage";
 interface Course {
   id: string;
   title: string;
@@ -18,6 +19,7 @@ interface Course {
 }
 const Home = () => {
   const [courses, setCourses] = useState<Course[]>([]);
+  const { t } = useLanguage();
   useEffect(() => {
     // Load courses directly from import
     import('@/data/courses.json').then(module => {
@@ -55,28 +57,28 @@ const Home = () => {
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in flex flex-col items-center justify-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium animate-scale-in hover:scale-105 transition-transform duration-300">
               <TrendingUp className="h-4 w-4 animate-pulse" />
-              Empowering Through Education
+              {t("Empowering Through Education")}
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              Unlock Your Digital Future in{" "}
+              {t("Unlock Your Digital Future in")}{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Sierra Leone
+                {t("Sierra Leone")}
               </span>
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Access world-class digital skills training, connect with inspiring mentors, and discover opportunities that transform careers and communities.
+              {t("Access world-class digital skills training, connect with inspiring mentors, and discover opportunities that transform careers and communities")}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/signup">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">Start Learning Now<ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">{t("Start Learning Now")}<ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link to="/courses">
                 <Button size="lg" variant="outline" className="text-lg px-8 border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300">
-                  Explore Opportunities
+                  {t("Explore Opportunities")}
                 </Button>
               </Link>
             </div>
@@ -89,10 +91,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 space-y-4 animate-fade-in flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Popular <span className="text-primary">Courses</span>
+              {t("Popular")} <span className="text-primary">{t("Courses")}</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Choose from our most popular courses designed to help you build in-demand skills
+              {t("Choose from our most popular courses designed to help you build in-demand skills")}
             </p>
           </div>
 
@@ -122,16 +124,16 @@ const Home = () => {
                     </div>
                     <div className="flex items-center gap-1">
                       <Users className="h-4 w-4" />
-                      <span>{course.enrolled.toLocaleString()} students</span>
+                      <span>{course.enrolled.toLocaleString()} {t("students")}</span>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">by {course.instructor}</p>
+                  <p className="text-sm text-muted-foreground mt-2">{t("by")} {course.instructor}</p>
                 </CardContent>
                 
                 <CardFooter>
                   <Link to={`/course/${course.id}`} className="w-full">
                     <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                      View Details <ArrowRight className="ml-2 h-4 w-4" />
+                      {t("View Details")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </CardFooter>
@@ -141,7 +143,7 @@ const Home = () => {
           <div className="text-center mt-12 animate-fade-in flex justify-center">
             <Link to="/courses">
               <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300">
-                View All Courses
+                {t("View All Courses")}
               </Button>
             </Link>
           </div>
@@ -153,10 +155,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 space-y-4 animate-fade-in flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Why Choose <span className="text-primary">Empower SL</span>
+              {t("Why Choose")} <span className="text-primary">{t("Empower SL")}</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to build a successful digital career
+              {t("Everything you need to build a successful digital career")}
             </p>
           </div>
 
@@ -165,9 +167,9 @@ const Home = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300 group-hover:rotate-6">
                 <BookOpen className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Free Learning Resources</h3>
+              <h3 className="text-xl font-bold mb-4">{t("Free Learning Resources")}</h3>
               <p className="text-muted-foreground">
-                Access world-class courses in digital skills, entrepreneurship, and technology—completely free.
+                {t("Access world-class courses in digital skills, entrepreneurship, and technology—completely free")}
               </p>
             </Card>
 
@@ -177,9 +179,9 @@ const Home = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300 group-hover:rotate-6">
                 <Users className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Inspiring Success Stories</h3>
+              <h3 className="text-xl font-bold mb-4">{t("Inspiring Success Stories")}</h3>
               <p className="text-muted-foreground">
-                Learn from Sierra Leonean youth who transformed their lives through digital skills and innovation.
+                {t("Learn from Sierra Leonean youth who transformed their lives through digital skills and innovation")}
               </p>
             </Card>
 
@@ -189,9 +191,9 @@ const Home = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300 group-hover:rotate-6">
                 <Briefcase className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Real Opportunities</h3>
+              <h3 className="text-xl font-bold mb-4">{t("Real Opportunities")}</h3>
               <p className="text-muted-foreground">
-                Discover scholarships, training programs, and job opportunities to kickstart your digital career.
+                {t("Discover scholarships, training programs, and job opportunities to kickstart your digital career")}
               </p>
             </Card>
           </div>
@@ -207,7 +209,7 @@ const Home = () => {
                 <Users className="h-8 w-8 text-primary" />
               </div>
               <div className="text-4xl font-bold text-primary">15,000</div>
-              <div className="text-muted-foreground">Active Learners</div>
+              <div className="text-muted-foreground">{t("Active Learners")}</div>
             </div>
             
             <div className="text-center space-y-2 animate-scale-in flex flex-col items-center" style={{
@@ -217,7 +219,7 @@ const Home = () => {
                 <BookOpen className="h-8 w-8 text-accent" />
               </div>
               <div className="text-4xl font-bold text-accent">50+</div>
-              <div className="text-muted-foreground">Free Courses</div>
+              <div className="text-muted-foreground">{t("Free Courses")}</div>
             </div>
             
             <div className="text-center space-y-2 animate-scale-in flex flex-col items-center" style={{
@@ -227,7 +229,7 @@ const Home = () => {
                 <Briefcase className="h-8 w-8 text-primary" />
               </div>
               <div className="text-4xl font-bold text-primary">120+</div>
-              <div className="text-muted-foreground">Opportunities</div>
+              <div className="text-muted-foreground">{t("Opportunities")}</div>
             </div>
             
             <div className="text-center space-y-2 animate-scale-in flex flex-col items-center" style={{
@@ -237,7 +239,7 @@ const Home = () => {
                 <CheckCircle className="h-8 w-8 text-accent" />
               </div>
               <div className="text-4xl font-bold text-accent">95%</div>
-              <div className="text-muted-foreground">Success Rate</div>
+              <div className="text-muted-foreground">{t("Success Rate")}</div>
             </div>
           </div>
         </div>
@@ -248,10 +250,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 space-y-4 animate-fade-in flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Success <span className="text-primary">Stories</span>
+              {t("Success")} <span className="text-primary">{t("Stories")}</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Real people, real transformation
+              {t("Real people, real transformation")}
             </p>
           </div>
 
@@ -262,12 +264,12 @@ const Home = () => {
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-5 w-5 fill-accent text-accent" />)}
                 </div>
-                <p className="text-muted-foreground italic mb-6">"{testimonial.quote}"</p>
+                <p className="text-muted-foreground italic mb-6">"{t(testimonial.quote)}"</p>
                 <div className="flex items-center gap-4">
-                  <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full" />
+                  <img src={testimonial.image} alt={t(testimonial.name)} className="w-12 h-12 rounded-full" />
                   <div>
-                    <div className="font-semibold text-primary">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                    <div className="font-semibold text-primary">{t(testimonial.name)}</div>
+                    <div className="text-sm text-muted-foreground">{t(testimonial.role)}</div>
                   </div>
                 </div>
               </Card>)}
@@ -280,20 +282,20 @@ const Home = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white">
-              Ready to Transform Your Future?
+              {t("Ready to Transform Your Future?")}
             </h2>
             <p className="text-xl text-white/90">
-              Join thousands of learners who are building successful careers in the digital economy
+              {t("Join thousands of learners who are building successful careers in the digital economy")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               <Link to="/signup">
                 <Button size="lg" variant="secondary" className="text-lg px-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Get Started Free
+                  {t("Get Started Free")}
                 </Button>
               </Link>
               <Link to="/courses">
-                <Button size="lg" variant="outline" className="text-lg px-8 border-white hover:scale-105 transition-all duration-300 text-slate-50 bg-slate-950 hover:bg-slate-800">
-                  Browse Courses
+                <Button size="lg" variant="outline" className="text-lg px-8 border-white hover:scale-105 transition-all duration-300 bg-gray-950 hover:bg-gray-800 text-white">
+                  {t("Browse Courses")}
                 </Button>
               </Link>
             </div>

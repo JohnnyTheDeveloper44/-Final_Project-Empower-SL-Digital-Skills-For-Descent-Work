@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { GraduationCap } from "lucide-react";
 import { signup } from "@/utils/auth";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -15,6 +16,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
